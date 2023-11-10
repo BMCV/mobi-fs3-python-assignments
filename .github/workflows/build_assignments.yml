@@ -6,18 +6,42 @@ on:
       - '**.tex'
 
 jobs:
-  build_latex:
+
+  init:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Setup repository
+      - name: Initialize
         uses: actions/checkout@v2
+
+  build_document_parts:
+    runs-on: ubuntu-latest
+    needs: ['init']
+    strategy:
+      matrix:
+        part: ['session1', 'session2', 'session3', 'session4']
+
+      - name: Build LaTeX document parts
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: assignments
+          root_file: ${{ matrix.part }}.tex
+
+  merge_document_parts:
+    runs-on: ubuntu-latest
+    needs: ['build_document_parts']
+    steps:
 
       - name: Build LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
           working_directory: assignments
           root_file: main.tex
+
+  release_document:
+    runs-on: ubuntu-latest
+    needs: ['build_document_parts']
+    steps:
 
       - name: Create release
         id: create_release
