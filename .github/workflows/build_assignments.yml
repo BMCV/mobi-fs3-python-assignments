@@ -76,8 +76,6 @@ jobs:
           root_file: main.tex
           working_directory: sources
 
-      - name: Change working directory
-
       - name: Create release
         id: create_release
         uses: elgohr/Github-Release-Action@v5
