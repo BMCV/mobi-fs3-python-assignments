@@ -1,0 +1,67 @@
+\ProvidesPackage{preamble}
+
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{fancyvrb}
+\usepackage{titlesec}
+\usepackage{keystroke}
+\usepackage{ifthen}
+\usepackage[varbb]{newpxmath} % sets fonts
+\usepackage{newpxtext} % sets fonts
+
+%\usepackage{draftwatermark}
+%\SetWatermarkText{DRAFT}
+%\SetWatermarkScale{3}
+
+\usepackage[T1]{fontenc}
+\usepackage[numbered,framed]{matlab-prettifier}
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+
+\let\ph\mlplaceholder % shorter macro
+\lstMakeShortInline"
+
+\lstset{
+  style              = Matlab-editor,
+  basicstyle         = \mlttfamily \small,
+  escapechar         = ",
+  mlshowsectionrules = true,
+  xleftmargin=.01\textwidth, xrightmargin=.01\textwidth
+}
+\newcommand\course{\"Ubungen zur Vorlesung ``Methoden der Bioinformatik''\\Teil Bildanalyse (Computer Vision), BMCV Group, PD Dr.\ K.\ Rohr}
+
+\newcommand\courseterm{Wintersemester 2022/2023}
+\newcommand\bonustask{(\textnormal{\sffamily \textsc{bonus}})}
+
+\newcommand\coursename{compmeth}
+\newcommand\projectid{{\coursename}2022}
+\newcommand\ymlfile{\texttt{{\projectid}.yml}}
+
+\graphicspath{{./problem1_images}}
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\textbf{\huge \sessiontitle\ifthenelse{\value{page}=1}{\\\large\sessionsubtitle}{}}}
+\rhead{\ifthenelse{\value{page}=1}{\scriptsize\course \\ \courseterm\vspace{0.3em}}{}}
+\lfoot{\footnotesize Last changed: \today}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+
+\titleformat*{\section}{\large\bfseries\sffamily}
+\titleformat*{\subsection}{\bfseries\sffamily}

@@ -1,0 +1,16 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+
+\immediate\write18{pdflatex session1}
+\immediate\write18{pdflatex session2}
+\immediate\write18{pdflatex session3}
+\immediate\write18{pdflatex session4}
+
+\includepdf[pages=-]{session1.pdf}
+\includepdf[pages=-]{session2.pdf}
+\includepdf[pages=-]{session3.pdf}
+\includepdf[pages=-]{session4.pdf}
+
+\end{document}
