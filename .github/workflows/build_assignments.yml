@@ -77,11 +77,11 @@ jobs:
           working_directory: sources
 
       - name: Change working directory
-        run: cd sources
 
       - name: Create release
         id: create_release
         uses: elgohr/Github-Release-Action@v5
+        working-directory: sources
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -94,6 +94,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: main.pdf
+          asset_path: sources/main.pdf
           asset_name: assignments.pdf
           asset_content_type: pdf
