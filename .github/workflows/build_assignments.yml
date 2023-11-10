@@ -23,6 +23,7 @@ jobs:
 
   delete_previous_release:
     runs-on: ubuntu-latest
+    steps:
 
       - name: Delete previous release (if any)
         uses: dev-drprasad/delete-tag-and-release@v1.0
