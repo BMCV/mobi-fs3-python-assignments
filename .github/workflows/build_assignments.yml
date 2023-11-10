@@ -9,7 +9,6 @@ on:
 jobs:
 
   init:
-  build_document_parts:
     runs-on: ubuntu-latest
     steps:
 
