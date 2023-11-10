@@ -52,6 +52,13 @@ jobs:
       - name: Download sources and LaTeX document parts
         uses: actions/download-artifact@v3
 
+      - name: Prepare directory structure
+        run: |
+            for i in 1 2 3 4
+            do
+              mv "session$i/session$i.pdf" "sources/"
+            loop
+
       - name: Build LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
