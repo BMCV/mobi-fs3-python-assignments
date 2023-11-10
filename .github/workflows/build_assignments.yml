@@ -3,7 +3,7 @@ name: Build assignemnts.pdf document
 on:
   push:
     paths:
-      - '**.tex'
+      - 'assignments/**'
       - '.github/workflows/*.yml'
 
 jobs:
