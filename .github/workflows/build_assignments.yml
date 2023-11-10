@@ -36,12 +36,13 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: ${{ matrix.part }}.tex
+          working_directory: sources
 
       - name: Upload LaTeX document part
         uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.part }}
-          path: ${{ matrix.part }}.pdf
+          path: sources/${{ matrix.part }}.pdf
 
   merge_document_parts:
     runs-on: ubuntu-latest
