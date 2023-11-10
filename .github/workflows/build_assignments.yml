@@ -57,7 +57,7 @@ jobs:
             for i in 1 2 3 4
             do
               mv "session$i/session$i.pdf" "sources/"
-            loop
+            done
 
       - name: Build LaTeX document
         uses: xu-cheng/latex-action@v2
