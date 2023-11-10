@@ -35,14 +35,13 @@ jobs:
       - name: Build LaTeX document parts
         uses: xu-cheng/latex-action@v2
         with:
-          working_directory: assignments
           root_file: ${{ matrix.part }}.tex
 
       - name: Upload LaTeX document part
         uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.part }}
-          path: assignments/${{ matrix.part }}.pdf
+          path: ${{ matrix.part }}.pdf
 
   merge_document_parts:
     runs-on: ubuntu-latest
@@ -55,7 +54,6 @@ jobs:
       - name: Build LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          working_directory: assignments
           root_file: main.tex
 
       - name: Create release
@@ -76,6 +74,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: ./assignments/main.pdf
+          asset_path: main.pdf
           asset_name: assignments.pdf
           asset_content_type: pdf
