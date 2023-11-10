@@ -66,12 +66,11 @@ jobs:
           working_directory: sources
 
       - name: Delete release
-        uses: liudonghua123/delete-release-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: dev-drprasad/delete-tag-and-release@v1.0
         with:
-          release_name: ${{ github.ref_name }}
-          suppress_errors: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: ${{ github.ref_name }}
+          delete_release: true
 
       - name: Create release
         id: create_release
