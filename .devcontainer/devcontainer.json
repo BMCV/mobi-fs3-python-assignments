@@ -1,0 +1,38 @@
+{
+    "hostRequirements": {
+        "cpus": 4
+    },
+    "forwardPorts": [ 35556 ],
+    "name": "latex-dev",
+    "image": "ghcr.io/willfantom/devcontainer-latex:latest-small",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "workspaceFolder": "/workspace",
+    "onCreateCommand": "git submodule update --init && tlmgr install keystroke && texhash",
+    "customizations": {
+        "codespaces": {
+            "openFiles": [
+                "assignments/preamble.sty",
+                "assignments/session1.tex",
+                "assignments/session2.tex",
+                "assignments/session3.tex",
+                "assignments/session4.tex"
+            ]
+        },
+        "vscode": {
+            "extensions": [
+                "james-yu.latex-workshop"
+            ],
+            "settings": {
+                "latex-workshop.viewer.pdf.internal.port": 35556,
+                "latex-workshop.latex.recipes": [
+                    {
+                        "name": "latexmk (xelatex)",
+                        "tools": [
+                            "pdflatex"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
