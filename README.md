@@ -11,4 +11,4 @@
 **If you want to make some changes for the next year:**
 1. Create a future-branch 🙂
 2. Update & merge the code (as described above)
-3. Merge back to `latest` before the course starts
+3. Merge back to `current` before the course starts
