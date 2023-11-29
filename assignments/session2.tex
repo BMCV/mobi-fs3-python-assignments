@@ -16,18 +16,18 @@
     \item Open the notebook \texttt{task2.ipynb}.
     \item Enter the following code into the \emph{first} code cell of the notebook and run it:
 \begin{Verbatim}[frame=single]
-%pylab
-%matplotlib inline
+import numpy
+import matplotlib.pyplot as plt
 \end{Verbatim}
     \textbf{Notes:}
     \begin{itemize}
-        \item These two instructions enable several Python extensions (including importing \texttt{numpy}) which are useful for image and/or data analysis using Jupyter notebooks.
+        \item The first instruction should be clear from the lecture. The second instruction loads the module ``\texttt{matplotlib.pyplot}'' and makes it available by using the abbreviation ``\texttt{plt}''. This module is useful for visualizing data.
         \item Make sure this code cell \emph{always} remains the very first code cell of your notebook, so it is run first when the Notebook is re-run from top to bottom.
     \end{itemize}
     \item Then, extend the notebook as follows:
     \begin{enumerate}
         \item Use \texttt{img = imread(\textquotesingle{}data/cells.png\textquotesingle)} to load an image. \textbf{Note:} The type of the returned object (\texttt{img}) is \texttt{numpy.ndarray} (also see the introduction on page~\pageref{sec:ndarray}). Objects of this type represent images.
-        \item Use \texttt{figure()} (or, e.g., \texttt{figure(figsize=(15,8))} if you want to specify the size of the figure) to add a \emph{figure} to a code cell of the notebook. Then, \emph{within the same code cell}, use \texttt{imshow(img, \textquotesingle{}gray\textquotesingle)}\footnote{The parameter ``\texttt{\textquotesingle{}gray\textquotesingle}'' in ``\texttt{imshow(img, \textquotesingle{}gray\textquotesingle)}'' specifies the color map for a \emph{monochromatic} image (i.e.\ a two-dimensional array of image \emph{intensities}, non-RGB) for visualization (e.g., gray-scale)} to display the image within the figure. In addition, use \texttt{colorbar()} after the \texttt{imshow}-instruction to include a legend of the gray-scale encoding. Run the code cell \emph{with and without} the \texttt{colorbar}-instruction and observe the differences. Finally, you should obtain an output like this:
+        \item Use \texttt{plt.figure()} (or, e.g., \texttt{plt.figure(figsize=(15,8))} if you want to specify the size of the figure) to add a \emph{figure} to a code cell of the notebook. Then, \emph{within the same code cell}, use \texttt{plt.imshow(img, \textquotesingle{}gray\textquotesingle)}\footnote{The parameter ``\texttt{\textquotesingle{}gray\textquotesingle}x' in ``\texttt{plt.imshow(img, \textquotesingle{}gray\textquotesingle)}'' specifies the color map for a \emph{monochromatic} image (i.e.\ a two-dimensional array of image \emph{intensities}, non-RGB) for visualization (e.g., gray-scale)} to display the image within the figure. In addition, use \texttt{plt.colorbar()} after the \texttt{imshow}-instruction to include a legend of the gray-scale encoding. Run the code cell \emph{with and without} the \texttt{colorbar}-instruction and observe the differences. Finally, you should obtain an output like this:
         \begin{figure}[h!]
             \centering
             \includegraphics[width=0.5\textwidth]{images/task2-1.png}
@@ -65,7 +65,7 @@ Note that the above is \emph{not} a complete list (there are many more attribute
 \label{task:histograms}
 Extend your notebook by a histogram of the previously loaded image -- \textbf{Hints:}
 \begin{enumerate}
-    \item The function \texttt{hist(data)} produces a histogram of a \emph{sequence of values} (\texttt{data}).
+    \item The function \texttt{plt.hist(data)} produces a histogram of a \emph{sequence of values} (\texttt{data}).
     \item In Python, a \emph{sequence} is, for example, a list, a \emph{flat} array, \ldots
     \item The image \texttt{img} is a \emph{two-dimensional} array and \texttt{img.flatten()} yields a flat representation (sequence of all pixel values).
 \end{enumerate}
@@ -88,10 +88,10 @@ If $g$ is the image \texttt{img}, $y$ is the image \texttt{row}, and $x$ is the 
     \item Reproduce the behaviour of the method \texttt{clip}, i.e.\ perform intensity clipping \emph{without} using the method \texttt{clip}!
     \begin{enumerate}
         \item Use \emph{two} nested \texttt{for}-loops (one outer loop for the image rows or columns, one inner loop for the pixels of the current row/column) and \texttt{if}-conditions.
-        \item Use a \emph{single} \texttt{for}-loop and \texttt{if}-conditions -- \textbf{Hint:} \texttt{ndindex(img.shape)} yields an iterable. The items of this iterable correspond to \emph{all} pixel coordinates of the image  \texttt{img}. Each item is a pair of coordinates (i.e.\ row and column). Use ``\texttt{[0]}'' and ``\texttt{[1]}'' to access the corresponding row and column of an item.
+        \item Use a \emph{single} \texttt{for}-loop and \texttt{if}-conditions -- \textbf{Hint:} \texttt{numpy.ndindex(img.shape)} yields an iterable. The items of this iterable correspond to \emph{all} pixel coordinates of the image  \texttt{img}. Each item is a pair of coordinates (i.e.\ row and column). Use ``\texttt{[0]}'' and ``\texttt{[1]}'' to access the corresponding row and column of an item.
     \end{enumerate}
 \end{enumerate}
-\textbf{Hint:} Include a legend of the gray-scale encoding (using ``\texttt{colorbar()}'') in \emph{each} figure!\end{samepage}
+Include a legend of the gray-scale encoding (using ``\texttt{plt.colorbar()}'') in \emph{each} figure!\end{samepage}
 
 \section{Writing re-usable code \bonustask}
 \label{task:functions}

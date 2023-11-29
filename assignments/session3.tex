@@ -8,7 +8,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-\paragraph{Preparation.} Open the notebook \texttt{task3.ipynb} in VS Code (see Task 2 of Lab Session 1). Enter the ``\texttt{\%pylab}'' and ``\texttt{\%matplotlib inline}'' instructions into the \emph{first} code cell of the notebook and run it (cf.\ Lab Session~2).
+\paragraph{Preparation.} Open the notebook \texttt{task3.ipynb} in VS Code (see Task 2 of Lab Session 1). Enter the ``\texttt{import numpy}'' and ``\texttt{import matplotlib.pyplot as plt}'' instructions into the \emph{first} code cell of the notebook and run it (cf.\ Lab Session~2).
 
 \section{Linear filtering by convolution (mean filter)}
 \label{task:boxfilter}
@@ -17,7 +17,7 @@ In this task you will implement and test a \emph{mean filter} (box filter).
     \item Use \texttt{imread} and \texttt{imshow} to load and show the image \texttt{data/lena.png}.
     \item Finish the implementation of the re-usable function \texttt{meanfilter}. The function parameters are \texttt{img} (the image to be filtered) and \texttt{size} (filter size determining the filtering neighborhood). You may assume that \texttt{size} is an odd number. The function must return the filtered result image. Do \emph{not} modify the input image \texttt{img}!
     \item Test your solution by using the function \texttt{meanfilter} for the previously loaded image (e.g., set the filter size to \texttt{3}). If something does not work as expected, look for errors you have made and fix them. Repeat fixing and testing until everything works.
-    \item Compare your result for filter size \texttt{5} with the correct result image \texttt{data/lena\_mean\-fil\-ter5.png}. Use \texttt{imread} to load the image. For a \emph{quantitative} comparison of two images, use the instruction ``\texttt{assert allclose(img1, img2, atol=1/255)}'' where ``\texttt{img1}'' and ``\texttt{img2}'' are the two images -- \textbf{Notes:}
+    \item Compare your result for filter size \texttt{5} with the correct result image \texttt{data/lena\_mean\-fil\-ter5.png}. Use \texttt{imread} to load the image. For a \emph{quantitative} comparison of two images, use the instruction ``\texttt{assert numpy.allclose(img1, img2, atol=1/255)}'' where ``\texttt{img1}'' and ``\texttt{img2}'' are the two images -- \textbf{Notes:}
     \begin{enumerate}
         \item The instruction ``\texttt{assert condition}'' interrupts the code execution if \texttt{condition} is \texttt{False}, rising your attention to an error. Otherwise, nothing happens.
         \item In contrast to a comparison using the mathematical equality operator (``\texttt{img1 == img2}''), a comparison using \texttt{allclose} tolerates \emph{numerical inaccuracies}. The parameter ``\texttt{atol=1/255}'' specifies the maximum tolerated difference per pixel. Since the PNG file quantifies image intensities as multiples of $1/255$, errors lower than $1/255$ cannot be distinguished from numerical inaccuracies.

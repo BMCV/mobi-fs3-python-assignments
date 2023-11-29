@@ -13,7 +13,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-\paragraph{Preparation.} Open the notebook \texttt{task4.ipynb} in VS Code (see Task 2 of Lab Session 1).. Enter the ``\texttt{\%pylab}'' and ``\texttt{\%matplotlib inline}'' instructions into the \emph{first} code cell of the notebook and run it (cf.\ Lab Session~2).
+\paragraph{Preparation.} Open the notebook \texttt{task4.ipynb} in VS Code (see Task 2 of Lab Session 1). Enter the ``\texttt{import numpy}'' and ``\texttt{import matplotlib.pyplot as plt}'' instructions into the \emph{first} code cell of the notebook and run it (cf.\ Lab Session~2).
 
 \section{Prewitt filter}
 \label{task:prewitt}
@@ -62,7 +62,7 @@
     \item Compute the \emph{magnitude} of the image gradient \begin{gather*}\left\|\nabla g\left(x,y\right)\right\| = \sqrt{g_x^2\left(x,y\right) + g_y^2\left(x,y\right)}\end{gather*} and include the resulting image into the notebook. \textbf{Hints:}
     \begin{enumerate}
         \item When working with objects of the type \texttt{numpy.ndarray} (e.g., images), mathematical operations are \emph{propagated} to the intensity values of the image. For example, if \texttt{img} is an image of the type \texttt{numpy.ndarray}, then the expression \texttt{img*2} yields an image with \emph{doubled} intensities (in comparison to \texttt{img}).
-        \item The square root of an intensity value (or all values in an \texttt{numpy.ndarray} object) can be computed using the \texttt{sqrt} function (e.g., \texttt{sqrt(value)} or \texttt{sqrt(img)}).
+        \item The square root of an intensity value (or all values in an image that is a \texttt{numpy.ndarray} object) can be computed using the \texttt{numpy.sqrt} function (e.g., \texttt{numpy.sqrt(value)} or \texttt{numpy.sqrt(img)}).
     \end{enumerate}
     \item Quantitatively compare your result with the correct result image \texttt{data/\-lena\_\-prewitt\_\-gradmag.tiff}.
 \end{enumerate}
