@@ -1,6 +1,6 @@
 [![Build assignemnts.pdf document](https://github.com/BMCV/mobi-fs3-python-tasks/actions/workflows/build_assignments.yml/badge.svg)](https://github.com/BMCV/mobi-fs3-python-tasks/actions/workflows/build_assignments.yml)
 
-# [Methoden der Bioinformatik 3. FS, Bildanalyse, Programmierübungen, Assignments]()
+# [Methoden der Bioinformatik 3. FS,<br>Bildanalyse, Programmierübungen, Assignments]()
 
 **Steps to update the assignments:**
 1. Fork this repository
