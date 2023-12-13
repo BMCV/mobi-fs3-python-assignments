@@ -12,3 +12,5 @@
 1. Create a future-branch 🙂
 2. Update & merge the code (as described above)
 3. Merge back to `current` before the course starts
+
+Test
