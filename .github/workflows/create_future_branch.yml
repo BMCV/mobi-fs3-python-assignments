@@ -3,7 +3,7 @@ name: Create future branch
 on:
   workflow_dispatch:
   schedule:
-    - '0 0 1 9 *'
+    - cron: '0 0 1 9 *'
 
 jobs:
 
