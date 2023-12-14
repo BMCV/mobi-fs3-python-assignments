@@ -27,3 +27,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'Initialize future branch'
+          create_branch: true
