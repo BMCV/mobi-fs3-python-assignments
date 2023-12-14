@@ -7,7 +7,7 @@
     "image": "ghcr.io/willfantom/devcontainer-latex:latest-small",
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
     "workspaceFolder": "/workspace",
-    "onCreateCommand": "tlmgr install keystroke preprint lastpage enumitem titlesec newpx kastrup xpatch xstring fontaxes matlab-prettifier menukeys adjustbox relsize rsfs newtx && texhash",
+    "onCreateCommand": "tlmgr update --self && tlmgr install keystroke preprint lastpage enumitem titlesec newpx kastrup xpatch xstring fontaxes matlab-prettifier menukeys adjustbox relsize rsfs newtx && texhash",
     "customizations": {
         "codespaces": {
             "openFiles": [
