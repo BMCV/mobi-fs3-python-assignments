@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'assignments/**'
-      - '.github/workflows/*.yml'
+      - '.github/workflows/build_assignments.yml'
   pull_request:
     branches:
       - 'current'
