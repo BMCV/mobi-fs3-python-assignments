@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Create and initialize future branch
-        run: python .github/create-future-branch.py >> $GITHUB_OUTPUT
+        run: echo "branch=$(python .github/create-future-branch.py)" >> $GITHUB_OUTPUT
         id: create_branch
 
       - name: Commit and push
