@@ -3,6 +3,7 @@ name: Create future branch
 on:
   schedule:
     - '0 0 1 9 *'
+  workflow_dispatch:
 
 jobs:
 
