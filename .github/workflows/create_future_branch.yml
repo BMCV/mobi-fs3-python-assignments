@@ -11,6 +11,7 @@ jobs:
 
     name: Create future branch
     runs-on: ubuntu-latest
+    if: github.repository_owner == 'BMCV'
 
     permissions:
       contents: write
