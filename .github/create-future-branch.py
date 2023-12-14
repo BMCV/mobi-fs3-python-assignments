@@ -13,5 +13,3 @@ init_script_filename = pathlib.Path(__file__).parents[0] / 'init-future-branch.p
 
 os.system(f'git checkout -b {branch}')
 os.system(f'python {init_script_filename} {branch}')
-os.system( 'git commit -a -m "Initialize future branch"')
-os.system(f'git push origin {branch}')
