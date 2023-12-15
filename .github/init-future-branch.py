@@ -20,7 +20,7 @@ with open(preamble_filename) as fp:
     preamble = fp.read()
 
 def get_substitution(tex):
-    match = re.search(r'\\courseterm\{(.*?)([0-9]{2})/(20)?[0-9]{2}\}', preamble)
+    match = re.search(r'\\courseterm\{(.*?)([0-9]{2})/(20)?[0-9]{2}\}', tex)
     token = match.group(0)
     replacement = r'\courseterm{' + match.group(1) + str(term) + '/' + match.group(3) + str(term + 1) + '}'
     return token, replacement
