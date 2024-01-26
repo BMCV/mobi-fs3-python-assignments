@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
     \end{itemize}
     \item Then, extend the notebook as follows:
     \begin{enumerate}
-        \item Use \texttt{img = imread(\textquotesingle{}data/cells.png\textquotesingle)} to load an image. \textbf{Note:} The type of the returned object (\texttt{img}) is \texttt{numpy.ndarray} (also see the introduction on page~\pageref{sec:ndarray}). Objects of this type represent images.
+        \item Use \texttt{img = plt.imread(\textquotesingle{}data/cells.png\textquotesingle)} to load an image. \textbf{Note:} The type of the returned object (\texttt{img}) is \texttt{numpy.ndarray} (also see the introduction on page~\pageref{sec:ndarray}). Objects of this type represent images.
         \item Use \texttt{plt.figure()} (or, e.g., \texttt{plt.figure(figsize=(15,8))} if you want to specify the size of the figure) to add a \emph{figure} to a code cell of the notebook. Then, \emph{within the same code cell}, use \texttt{plt.imshow(img, \textquotesingle{}gray\textquotesingle)}\footnote{The parameter ``\texttt{\textquotesingle{}gray\textquotesingle}x' in ``\texttt{plt.imshow(img, \textquotesingle{}gray\textquotesingle)}'' specifies the color map for a \emph{monochromatic} image (i.e.\ a two-dimensional array of image \emph{intensities}, non-RGB) for visualization (e.g., gray-scale)} to display the image within the figure. In addition, use \texttt{plt.colorbar()} after the \texttt{imshow}-instruction to include a legend of the gray-scale encoding. Run the code cell \emph{with and without} the \texttt{colorbar}-instruction and observe the differences. Finally, you should obtain an output like this:
         \begin{figure}[h!]
             \centering
