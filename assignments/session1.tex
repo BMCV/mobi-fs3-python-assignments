@@ -9,13 +9,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-\begin{sloppypar}
-\begin{description}
-\item[Course web-page:]~\\\url{http://www.bioquant.uni-heidelberg.de/research/groups/biomedical-computer-vision/teaching/compmeth/Labsessions}
-\item[Overview of your GitHub Codespaces:] \url{https://github.com/codespaces}
-\end{description}
-\end{sloppypar}
+\textbf{Course web-page:} \url{http://www.bioquant.uni-heidelberg.de/research/groups/biomedical-computer-vision/teaching/compmeth/Labsessions}
 
+\vspace{0.5em}
 If working in the BioQuant computer room, please \textbf{use Chrome instead of Firefox} as the web browser, because the installed version of Firefox is known to have issues with GitHub. Using Firefox is fine when working on your personal computer.
 
 \section{Setting up your GitHub repository}
@@ -41,9 +37,10 @@ If working in the BioQuant computer room, please \textbf{use Chrome instead of F
     \includegraphics[width=0.65\textwidth]{images/codespaces.png}
 \end{figure}
 
-\textbf{Note:} If, at any time, \textbf{VS Code} behaves weirdly (e.g., complaining about missing extensions, not loading notebooks, or similar), try to simply reload the \textbf{VS Code} window. To do that, press \Ctrl+\keystroke{\shift}+\keystroke{P} (or \keystroke{\cmd}+\keystroke{\shift}+\keystroke{P} if you are on macOS) and type ``Reload window \Return''. Your work progress will be preserved.
+\textbf{Note:} If, at any time, \textbf{VS Code} behaves weirdly (e.g., complaining about missing extensions, not loading notebooks, not finding kernels, or similar), try to reload the \textbf{VS Code} window. To do that, press \Ctrl+\keystroke{\shift}+\keystroke{P} (or \keystroke{\cmd}+\keystroke{\shift}+\keystroke{P} if you are on macOS) and type ``Reload window \Return''. Your work progress will be preserved. If this does not solve the issue, make sure your work is \textbf{committed and pushed} (see Task~\ref{task:notebooks}), then go to \url{https://github.com/codespaces} and delete the codespace. Then, re-create the codespace using the steps 1--3 described above.
 
 \section{Your first Jupyter notebook}
+\label{task:notebooks}
 The left panel of \textbf{VS Code} shows an overview of \textbf{your local repository}. Right now it is identical to your GitHub repository. The assignments of this course are organized into several Jupyter notebooks. These are the "task*.ipynb" files that you can see in your repository. By progressing from task to task, you will work with different notebooks.
 
 \begin{enumerate}
