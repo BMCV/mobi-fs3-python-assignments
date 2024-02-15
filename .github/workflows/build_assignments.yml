@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Upload sources
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: sources
           path: assignments
@@ -55,7 +55,7 @@ jobs:
           working_directory: sources
 
       - name: Upload LaTeX document part
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.part }}
           path: sources/${{ matrix.part }}.pdf
