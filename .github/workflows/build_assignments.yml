@@ -46,7 +46,7 @@ jobs:
     steps:
 
       - name: Download sources
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
 
       - name: Build LaTeX document parts
         uses: xu-cheng/latex-action@v2
@@ -67,7 +67,7 @@ jobs:
     steps:
 
       - name: Download sources and LaTeX document parts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
 
       - name: Prepare directory structure
         run: |
