@@ -19,7 +19,7 @@ jobs:
     steps:
 
       - name: Initialize
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Create and initialize future branch
         run: echo "branch=$(python .github/create-future-branch.py)" >> $GITHUB_OUTPUT
