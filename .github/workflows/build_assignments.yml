@@ -94,6 +94,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: ['merge_document_parts']
     if: github.event_name != 'pull_request'
+    permissions: write-all
     steps:
 
       - name: Delete previous release (if any)
