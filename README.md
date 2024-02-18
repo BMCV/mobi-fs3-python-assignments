@@ -10,5 +10,5 @@
 
 **If you want to make some changes for the next year:**
 1. Update the code (as described above)
-2. Create the pull request against the corresponding `future-*` branch
-3. Merge the `future-*` branch to the `current` branch in time before the course starts
+2. Create the pull request against the corresponding `future/*` branch
+3. Merge the `future/*` branch to the `current` branch in time before the course starts
