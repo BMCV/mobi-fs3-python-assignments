@@ -8,124 +8,26 @@ on:
   pull_request:
     branches:
       - 'current'
-      - 'future-*'
+      - 'future/**'
 
 jobs:
 
-  fetch_sources:
+  build_assignments:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' || github.ref_name == 'current' || startsWith(github.ref_name, 'future-')
+    if: github.event_name == 'pull_request' || github.ref_name == 'current' || startsWith(github.ref_name, 'future/')
+    permissions: write-all
     steps:
 
       - name: Initialize
         uses: actions/checkout@v4
 
-      - name: Upload sources
-        uses: actions/upload-artifact@v4
+      - uses: kostrykin/build-latex-document-action@master
         with:
-          name: sources
-          path: assignments
-
-  build_document_parts:
-    runs-on: ubuntu-latest
-    needs: ['fetch_sources']
-    strategy:
-      matrix:
-        part: ['session1', 'session2', 'session3', 'session4']
-    steps:
-
-      - name: Download sources
-        uses: actions/download-artifact@v4
-
-      - name: Build LaTeX document parts
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: ${{ matrix.part }}.tex
-          working_directory: sources
-
-      - name: Upload LaTeX document part
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ matrix.part }}
-          path: sources/${{ matrix.part }}.pdf
-
-  merge_document_parts:
-    runs-on: ubuntu-latest
-    needs: ['build_document_parts']
-    permissions: write-all
-    steps:
-
-      - name: Download sources and LaTeX document parts
-        uses: actions/download-artifact@v4
-
-      - name: Prepare directory structure
-        run: |
-            for i in 1 2 3 4
-            do
-              mv "session$i/session$i.pdf" "sources/"
-            done
-
-      - name: Build LaTeX document
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: assignments.tex
-          working_directory: sources
-          
-      - name: Upload LaTeX document
-        uses: actions/upload-artifact@v4
-        id: document-upload-step
-        with:
-          name: document
-          path: sources/assignments.pdf
-
-      - name: Paste document download link into pull request
-        uses: actions/github-script@v3
-        if: github.event_name == 'pull_request'
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'Document built successfully: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.document-upload-step.outputs.artifact-id }}'
-            })
-
-  publish_document:
-    runs-on: ubuntu-latest
-    needs: ['merge_document_parts']
-    if: github.event_name != 'pull_request'
-    steps:
-
-      - name: Delete previous release (if any)
-        uses: dev-drprasad/delete-tag-and-release@v1.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          tag_name: ${{ github.ref_name }}
-          delete_release: true
-
-      - name: Download document
-        uses: actions/download-artifact@v4
-        with:
-          name: document
-
-      - name: Create release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref_name }}
-          release_name: ${{ github.ref_name }}
-          draft: false
-          prerelease: false
-
-      - name: Upload release asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: assignments.pdf
-          asset_name: assignments.pdf
-          asset_content_type: pdf
+          working_directory: assignments
+          document_filename: assignments.pdf
+          sources: |
+            session1.tex
+            session2.tex
+            session3.tex
+            session4.tex
+            assignments.tex
