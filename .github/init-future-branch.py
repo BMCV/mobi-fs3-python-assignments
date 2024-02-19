@@ -9,7 +9,7 @@ parser.add_argument('branch', type=str)
 args = parser.parse_args()
 
 try:
-    term = re.match(r'^future-(?:[ws]{2})-?(?:20)?([0-9]{2})$', args.branch).group(1)
+    term = re.match(r'^future/(?:[ws]{2})-?(?:20)?([0-9]{2})$', args.branch).group(1)
     term = int(term)
 except AttributeError:
     print(f'Malformed branch name: "{args.branch}"')

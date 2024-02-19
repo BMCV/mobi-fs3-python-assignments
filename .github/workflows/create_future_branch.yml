@@ -22,12 +22,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create and initialize future branch
-        run: echo "branch=$(python .github/create-future-branch.py)" >> $GITHUB_OUTPUT
-        id: create_branch
-
-      - name: Commit and push
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: kostrykin/create-future-branch-action@master
         with:
-          branch: ${{ steps.create_branch.outputs.branch }}
-          commit_message: 'Initialize future branch'
-          create_branch: true
+          init: python .github/init-future-branch.py
