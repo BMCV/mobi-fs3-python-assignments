@@ -23,6 +23,7 @@ jobs:
 
       - uses: kostrykin/build-latex-document-action@master
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           working_directory: assignments
           document_filename: assignments.pdf
           sources: |
